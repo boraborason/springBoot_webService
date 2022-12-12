@@ -1,0 +1,33 @@
+//해당 프로젝트 플러그인 의존성 관리
+buildscript {
+    ext { //전역변수 설정
+        springBootVersion = '2.1.9.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+//자바와 스프링 부트를 사용하기 위한 필수 플러그인
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+//각종 라이브러리 들을 어떤 원격 저장소에 받을 것인지 설정
+repositories {
+    mavenCentral()
+    jcenter() //mavenCentral 에도 업로드 될 수 있도록 자동화 가능
+}
+
+//개발에 필요한 의존성들 선언
+dependencies{
+    implementation ('org.springframework.boot:spring-boot-starter-web')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+
