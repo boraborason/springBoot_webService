@@ -27,6 +27,7 @@ repositories {
 //개발에 필요한 의존성들 선언
 dependencies{
     implementation ('org.springframework.boot:spring-boot-starter-web')
+    implementation ('org.projectlombok:lombok')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
