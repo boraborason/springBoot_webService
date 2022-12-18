@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)  //TEST시 junit에 내장된 실행자 외 실행자(SpringRunner.class)를 실행시킨다. 스프링 부트와 jUnit사이 열결 역할
 @WebMvcTest(controllers = HelloController.class)//Spring MVC 에만 집중 할 수 있는 테스트 어노테이션
-
+                                                //jpa기능이 작동 안함
 public class HelloControllerTest {
 
     @Autowired//빈 주입받음
