@@ -35,12 +35,15 @@
 <details>
 <summary>04장 머스테치로 화면 구성하기</summary>
 
-* 머스테치 : 
-* Querydsl :
+* 머스테치 : 수많은 언어를 지원하는 가장 심플한 템플릿 엔진
+* Querydsl : 쿼리를 자바코드로 작성할 수 있게 도와주는 기술이다. Spring Data JPA로 해결하지 못하는 복잡한 쿼리/동적 쿼리를 해결할 수 있다.
+
 </details>
 
 <details>
 <summary>05장 스프링 시큐리티와 OAuth2.0으로 로그인 기능 구현하기</summary>
+
+*OAuth : 별도의 회원가입 없이 로그인을 제공하는 서비스. 외부 서비스에서도 인증을 가능하게 하고 그 서비스의 API를 이용하게 해주는 것이다.
 
 </details>
 
