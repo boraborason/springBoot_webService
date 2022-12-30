@@ -15,6 +15,7 @@ public class OAuthAttributes {
     private String email;
     private String picture;
 
+    //OAuth2User에서 반환하는 사용자 정보는 map이기 때문에 값 하나하나를 변환
     @Builder
     public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String picture) {
         this.attributes = attributes;
@@ -23,12 +24,12 @@ public class OAuthAttributes {
         this.email = email;
         this.picture = picture;
     }
-    //OAuth2User에서 반환하는 사용자 정보는 map이기 때문에 값 하나하나를 변환
+
+    //네이버인지 판단하는 코드와 생성자 추가
     public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
         if("naver".equals(registrationId)) {
             return ofNaver("id", attributes);
         }
-
         return ofGoogle(userNameAttributeName, attributes);
     }
 
