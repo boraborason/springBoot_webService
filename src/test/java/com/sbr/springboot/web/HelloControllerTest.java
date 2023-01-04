@@ -1,28 +1,35 @@
 package com.sbr.springboot.web;
 
 
+import com.sbr.springboot.config.auth.SecurityConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)  //TEST시 junit에 내장된 실행자 외 실행자(SpringRunner.class)를 실행시킨다. 스프링 부트와 jUnit사이 열결 역할
-@WebMvcTest(controllers = HelloController.class)//Spring MVC 에만 집중 할 수 있는 테스트 어노테이션
-                                                //jpa기능이 작동 안함
+
+//Spring MVC 에만 집중 할 수 있는 테스트 어노테이션
+//jpa기능이 작동 안함
+@WebMvcTest(controllers = HelloController.class,
+        excludeFilters = {
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)//스캔대상에서 Security config를 제거
+        })
 public class HelloControllerTest {
 
     @Autowired//빈 주입받음
     private MockMvc mvc; //스프링 MVC테스트 시작점
 
-    //@WithMockUser(roles="USER")
+    @WithMockUser(roles="USER")
     @Test
     public void hello가_리턴된다() throws Exception {
         String hello = "hello";
@@ -32,7 +39,7 @@ public class HelloControllerTest {
                 .andExpect(content().string(hello));
     }
 
-    //@WithMockUser(roles="USER")
+    @WithMockUser(roles="USER")
     @Test
     public void helloDto가_리턴된다() throws Exception {
         String name = "hello";
