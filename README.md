@@ -54,10 +54,38 @@
 * AMI : EC2인스턴스를 시작하는데 필요한 정보를 이미지로 만들어 둔 것으로 인스턴스라는 가상머신에 운영체제 등을 설치할 수 있도록 구워넣은 이미지
 
 </details>
+
 <details>
 <summary>07장 AWS에 데이터베이스 환경구성</summary>
 
 * RDS : AWS에서 지원하는 클라우드 기반 관게형 데이터베이스
 </details>
 
+<details>
+<summary>08장 서버에 프로젝트 배포하기</summary>
 
+</details>
+
+<details>
+<summary>09장 코드가 푸시되면 자동으로 배포 - Travis CI배포 자동화</summary>
+
+* CI (지속적인 통합) 
+: 버전관리 시스템(SVN, GIT)에 PUSH가 되면 자동으로 테스트와 빌드가 수행되어 안정적인 배포 파일을 만드는 과정
+
+* CD (지속적인 배포) 
+: 빌드 결과를 자동으로 운영 서버에 무중단 배포까지 진행되는 과정
+
+* Travis CI : 깃허브에서 제공하는 무료 CI서비스
+* AWS S3 : AWS에서 제공하는 일종의 파일서버
+
+</details>
+
+<details>
+<summary>10장 24시간 365일 중단없는 서비스 만들기</summary>
+
+* 엔진엑스 : 웹서버, 리버스 프록시, 캐싱, 로드밸런싱, 미디어 스트리밍 등을 위한 오픈소스 
+</details>
+
+<details>
+<summary>11장 1인 개발시 도움이 될 도구와 조언들</summary>
+</details>
